@@ -1,0 +1,18 @@
+# PyInstaller
+dist/
+build/
+*.spec
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# 測試用的 PSD 檔案（通常不需要上傳）
+*.psd
+*.psb
+
+# 系統檔案
+.DS_Store
+Thumbs.db
