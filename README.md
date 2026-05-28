@@ -1,54 +1,79 @@
-# PSD 圖層轉 PNG 工具
+[繁體中文](README.zh-TW.md) | English
 
-將 `.psd` 檔案中的每個圖層，各自匯出為獨立的 `.png` 檔案，並保留圖層在畫布中的原始位置。
+---
 
-## 功能
+# PSD Layer to PNG Exporter
 
-- 選擇任意 `.psd` 或 `.psb` 檔案
-- 自訂輸出資料夾
-- 自訂檔名前綴
-- 可選擇是否自動編號（`01_`、`02_`…）
-- 支援群組圖層，遞迴匯出子圖層
-- 每張 PNG 與畫布等大，圖層位置完整保留（含透明度）
-- 即時顯示執行記錄
+Export each layer from a `.psd` file as an individual `.png` file, preserving each layer's original position on the canvas.
 
-## 使用方式
+## Features
 
-### 方法一：直接執行 Python 腳本
+- Browse and select any `.psd` or `.psb` file
+- Custom output folder
+- Custom filename prefix
+- Optional auto-numbering (`01_`, `02_`, …) — enabled by default, toggleable
+- Supports group layers with recursive export of child layers
+- Each PNG matches the full canvas size with layer position intact (transparency preserved)
+- Real-time export log
+- 🌐 Language selection on first launch (English / 繁體中文), preference saved automatically
 
-**安裝依賴：**
+## Usage
+
+### Option 1: Run the Python script directly
+
+**Install dependencies:**
 ```bash
 pip install psd-tools
 ```
 
-**執行程式：**
+**Run:**
 ```bash
 python psd_to_png_gui.py
 ```
 
-### 方法二：打包成 .exe（Windows，不需安裝 Python）
+### Option 2: Build as a standalone .exe (Windows, no Python required)
 
-**安裝依賴：**
+**Install dependencies:**
 ```bash
 pip install pyinstaller psd-tools
 ```
 
-**打包：**
+**Build:**
 ```bash
-pyinstaller --onefile --windowed --name PSD轉PNG psd_to_png_gui.py
+pyinstaller --onefile --windowed --name PSD-to-PNG psd_to_png_gui.py
 ```
 
-完成後至 `dist/` 資料夾取得 `PSD轉PNG.exe`，可直接分享給他人使用。
+The compiled `PSD-to-PNG.exe` will be in the `dist/` folder — ready to share with anyone, no Python installation needed.
 
-## 系統需求
+## Download
 
-- Python 3.8 以上
-- Windows（GUI 使用 tkinter，內建於 Python）
+Pre-built Windows executables are available on the [Releases](../../releases) page.
 
-## 依賴套件
+## Language
 
-| 套件 | 用途 |
-|------|------|
-| psd-tools | 解析 PSD 檔案與圖層 |
-| Pillow | 影像處理（psd-tools 自動安裝） |
-| pyinstaller | 打包成 exe（選用） |
+On first launch, a language selection dialog will appear. Your choice is saved to `config.json` in the same folder as the executable. To reset the language, simply delete `config.json`.
+
+## Requirements
+
+- Python 3.8 or higher
+- Windows (GUI built with tkinter, included with Python)
+
+## Dependencies
+
+| Package | Purpose |
+|---------|---------|
+| psd-tools | Parse `.psd` files and layers |
+| Pillow | Image processing (installed automatically with psd-tools) |
+| pyinstaller | Build standalone executable (optional) |
+
+## Changelog
+
+### v1.1.0
+- Added language selection dialog on first launch (English / 繁體中文)
+- Language preference is saved and remembered across sessions
+
+### v1.0.0
+- Initial release
+- Export PSD layers as individual PNG files
+- Preserve original layer position on canvas
+- Custom output folder, filename prefix, and auto-numbering
